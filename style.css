@@ -38,6 +38,17 @@ body {
   overflow-anchor: none;
 }
 
+/* Prevent wide images and hero pseudo-elements from causing horizontal scroll */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero {
+  overflow: hidden;
+}
+
 .scroll-progress {
   position: fixed;
   top: 0;
