@@ -298,6 +298,15 @@ nav a.is-active {
   line-height: 1;
 }
 
+.contact-item-sub,
+.legal-section p,
+.legal-section li,
+.legal-section a,
+footer p {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .hero-typing-spacer {
   visibility: hidden;
   pointer-events: none;
