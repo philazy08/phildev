@@ -178,6 +178,7 @@ nav a.is-active {
   border-bottom: 1px solid var(--border);
   position: relative;
   overflow: hidden;
+  contain: layout;
   display: flex;
   align-items: center;
 }
@@ -452,6 +453,7 @@ nav a.is-active {
 /* Sections */
 section {
   padding: 4.25rem 5%;
+  overflow-x: hidden;
 }
 
 .section-header {
@@ -498,6 +500,12 @@ h2 {
   align-items: center;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+.about-grid > *,
+.skills-grid > *,
+.projects-grid > * {
+  min-width: 0;
 }
 
 .about-img-wrap {
@@ -1051,7 +1059,9 @@ h2 {
   font-size: 0.88rem;
   font-weight: 400;
   border-radius: 16px;
-  min-width: 260px;
+  min-width: 0;
+  width: 100%;
+  max-width: 360px;
   box-shadow: 0 10px 26px rgba(17, 24, 39, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
@@ -1497,6 +1507,16 @@ footer a:hover {
 @media (max-width: 480px) {
   .hero h1 {
     font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .hero-typing-line {
+    white-space: normal;
+    flex-wrap: wrap;
+  }
+
+  .hero-typing-word {
+    white-space: normal;
+    word-break: break-word;
   }
 
   .hero-copy .hero-lead {
