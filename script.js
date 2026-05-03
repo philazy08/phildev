@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sectionElements = Array.from(document.querySelectorAll('section[id]'));
   const typingWord = document.querySelector('.hero-typing-word');
   const typingCursor = document.querySelector('.hero-typing-cursor');
+  const typingSpacer = document.querySelector('.hero-typing-spacer');
 
   // Fallback for browsers without IntersectionObserver
   if (!('IntersectionObserver' in window)) {
@@ -108,6 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
       .filter(Boolean);
 
     if (words.length > 0) {
+      if (typingSpacer) {
+        typingSpacer.textContent = words.reduce((longestWord, currentWord) => (
+          currentWord.length > longestWord.length ? currentWord : longestWord
+        ), words[0]);
+      }
+
       let wordIndex = 0;
       let characterIndex = typingWord.textContent.length;
       let isDeleting = false;
@@ -124,6 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
           typingWord.textContent = currentWord.slice(0, characterIndex);
           if (typingCursor) {
             typingCursor.classList.toggle('is-hidden', characterIndex === 0);
+            // Update cursor position
+            updateCursorPosition();
           }
 
           if (characterIndex === 0) {
@@ -144,6 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
         typingWord.textContent = currentWord.slice(0, characterIndex);
         if (typingCursor) {
           typingCursor.classList.toggle('is-hidden', characterIndex === currentWord.length);
+          // Update cursor position
+          updateCursorPosition();
         }
 
         if (characterIndex === currentWord.length) {
@@ -155,8 +166,16 @@ document.addEventListener('DOMContentLoaded', () => {
         window.setTimeout(animateTyping, typingDelay);
       };
 
+      const updateCursorPosition = () => {
+        if (!typingWord || !typingCursor) return;
+        const wordWidth = typingWord.offsetWidth;
+        const offset = (wordWidth / 2);
+        typingCursor.style.setProperty('--cursor-offset', offset + 'px');
+      };
+
       window.setTimeout(() => {
         if (words.length > 0) {
+          updateCursorPosition();
           animateTyping();
         }
       }, 900);
