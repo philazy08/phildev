@@ -20,13 +20,16 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 html.js {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
+  overflow-x: hidden;
   background: var(--cream);
   color: var(--dark);
   font-family: 'Manrope', sans-serif;
