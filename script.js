@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressBar = document.querySelector('.scroll-progress span');
   const backToTopButton = document.querySelector('.back-to-top');
   const sectionElements = Array.from(document.querySelectorAll('section[id]'));
+  const typingWord = document.querySelector('.hero-typing-word');
+  const typingCursor = document.querySelector('.hero-typing-cursor');
 
   // Fallback for browsers without IntersectionObserver
   if (!('IntersectionObserver' in window)) {
@@ -97,5 +99,67 @@ document.addEventListener('DOMContentLoaded', () => {
     backToTopButton.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  }
+
+  if (typingWord) {
+    const words = (typingWord.getAttribute('data-typing-words') || '')
+      .split(',')
+      .map((word) => word.trim())
+      .filter(Boolean);
+
+    if (words.length > 0) {
+      let wordIndex = 0;
+      let characterIndex = typingWord.textContent.length;
+      let isDeleting = false;
+
+      const typingDelay = 120;
+      const deletingDelay = 70;
+      const pauseAfterTyping = 1100;
+
+      const animateTyping = () => {
+        const currentWord = words[wordIndex];
+
+        if (isDeleting) {
+          characterIndex = Math.max(characterIndex - 1, 0);
+          typingWord.textContent = currentWord.slice(0, characterIndex);
+          if (typingCursor) {
+            typingCursor.classList.toggle('is-hidden', characterIndex === 0);
+          }
+
+          if (characterIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            if (typingCursor) {
+              typingCursor.classList.remove('is-hidden');
+            }
+            window.requestAnimationFrame(animateTyping);
+            return;
+          }
+
+          window.setTimeout(animateTyping, deletingDelay);
+          return;
+        }
+
+        characterIndex = Math.min(characterIndex + 1, currentWord.length);
+        typingWord.textContent = currentWord.slice(0, characterIndex);
+        if (typingCursor) {
+          typingCursor.classList.toggle('is-hidden', characterIndex === currentWord.length);
+        }
+
+        if (characterIndex === currentWord.length) {
+          isDeleting = true;
+          window.setTimeout(animateTyping, pauseAfterTyping);
+          return;
+        }
+
+        window.setTimeout(animateTyping, typingDelay);
+      };
+
+      window.setTimeout(() => {
+        if (words.length > 0) {
+          animateTyping();
+        }
+      }, 900);
+    }
   }
 });
