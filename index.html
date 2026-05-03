@@ -8,10 +8,13 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="top">
+
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+<button class="back-to-top" type="button" aria-label="Nach oben">↑</button>
 
 <nav>
-  <div class="logo">Phil Hägeli</div>
+  <a class="logo logo-link" href="#top">Phil Hägeli</a>
   <ul>
     <li><a href="#about">Über mich</a></li>
     <li><a href="#skills">Leistungen</a></li>
@@ -21,12 +24,17 @@
 </nav>
 
 <div class="hero">
-  <p class="hero-eyebrow">Webentwicklung · Luzern, Schweiz</p>
-  <h1>Ihr Webauftritt.<br><em>Professionell gestaltet.</em></h1>
-  <p>Ich bin Phil, angehender Applikationsentwickler im 3. Lehrjahr. Ich erstelle moderne, massgeschneiderte Websites für kleine und mittlere Unternehmen in der Region Luzern.</p>
-  <div class="hero-btns">
-    <a href="#projects" class="btn btn-primary">Projekte ansehen</a>
-    <a href="#contact" class="btn btn-ghost">Kontakt aufnehmen</a>
+  <div class="hero-inner">
+    <div class="hero-copy reveal">
+      <p class="hero-eyebrow">Webentwicklung · Luzern, Schweiz</p>
+      <h1>Ihr Webauftritt.<br><em>Professionell gestaltet.</em></h1>
+      <p class="hero-lead">Ich entwickle klare, moderne Websites für kleine und mittlere Unternehmen. Sauberes Design, schnelle Umsetzung und ein Auftritt, der Vertrauen schafft.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary">Projekte ansehen</a>
+        <a href="#contact" class="btn btn-ghost">Kontakt aufnehmen</a>
+      </div>
+      <p class="hero-note">Persönlich. Unkompliziert. Massgeschneidert.</p>
+    </div>
   </div>
 </div>
 
