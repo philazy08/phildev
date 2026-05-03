@@ -56,6 +56,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sectionElements.forEach((section) => sectionObserver.observe(section));
 
+  // Hide scroll hint when hero is out of view
+  const scrollHint = document.querySelector('.hero-scroll-hint');
+  if (scrollHint) {
+    const heroScrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        scrollHint.style.display = entry.isIntersecting ? 'flex' : 'none';
+      });
+    }, {
+      threshold: 0
+    });
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      heroScrollObserver.observe(hero);
+    }
+  }
+
   const updateScrollUI = () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
