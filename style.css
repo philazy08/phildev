@@ -16,6 +16,8 @@
   --accent-light: #e9f3ea;
   --progress: #6b8a6a;
   --progress-light: #cfe2cf;
+  --content-max: 1120px;
+  --page-gutter: clamp(1rem, 4vw, 3.25rem);
 }
 
 html {
@@ -117,12 +119,15 @@ nav {
   z-index: 100;
   background: rgba(255, 255, 255, 0.88);
   border-bottom: 1px solid var(--border);
-  padding: 1rem 5%;
+  padding: 1rem var(--page-gutter);
   display: flex;
   justify-content: space-between;
   align-items: center;
   backdrop-filter: blur(14px);
   transition: box-shadow 0.25s ease, background 0.25s ease;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  width: 100%;
 }
 
 nav.is-scrolled {
@@ -174,7 +179,7 @@ nav a.is-active {
   background: linear-gradient(180deg, #fff 0%, #faf7f3 100%);
   min-height: calc(100dvh - 76px);
   min-height: calc(100svh - 76px);
-  padding: clamp(3rem, 7vh, 5.5rem) 5% clamp(3.5rem, 7vh, 5.25rem);
+  padding: clamp(3rem, 7vh, 5.5rem) var(--page-gutter) clamp(3.5rem, 7vh, 5.25rem);
   border-bottom: 1px solid var(--border);
   position: relative;
   overflow: hidden;
@@ -461,8 +466,14 @@ footer p {
 
 /* Sections */
 section {
-  padding: 4.25rem 5%;
+  padding: 4.25rem var(--page-gutter);
   overflow-x: hidden;
+}
+
+section > * {
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section-header {
@@ -1126,7 +1137,7 @@ footer {
   background: var(--dark);
   color: #888;
   text-align: center;
-  padding: 2rem 5%;
+  padding: 2rem var(--page-gutter);
   font-size: 0.8rem;
   letter-spacing: 0.05em;
 }
@@ -1146,7 +1157,7 @@ footer a:hover {
 }
 
 .legal-main {
-  padding: 2.75rem 5% 4.25rem;
+  padding: 2.75rem var(--page-gutter) 4.25rem;
 }
 
 .legal-card {
@@ -1382,7 +1393,7 @@ footer a:hover {
   }
 
   section {
-    padding: 3.5rem 5%;
+    padding: 3.5rem var(--page-gutter);
   }
 
   .about-grid {
@@ -1457,7 +1468,7 @@ footer a:hover {
   }
 
   .legal-main {
-    padding: 1.5rem 5% 3rem;
+    padding: 1.5rem var(--page-gutter) 3rem;
   }
 
   .legal-card {
@@ -1495,7 +1506,7 @@ footer a:hover {
   }
 
   footer {
-    padding: 1.5rem 5%;
+    padding: 1.5rem var(--page-gutter);
     font-size: 0.72rem;
   }
 
@@ -1563,7 +1574,7 @@ footer a:hover {
   }
 
   .legal-main {
-    padding: 1.1rem 4.5% 2.4rem;
+    padding: 1.1rem var(--page-gutter) 2.4rem;
   }
 
   .legal-card {
