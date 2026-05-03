@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phil – Webentwickler</title>
+  <title>Phil Hägeli – Webentwickler aus Luzern | Moderne Websites für KMU</title>
+  <meta name="description" content="Phil Hägeli entwickelt moderne, schnelle und mobilfreundliche Websites für kleine und mittlere Unternehmen in Luzern und Umgebung.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#8b6f5e">
+  <meta property="og:title" content="Phil Hägeli – Webentwickler aus Luzern">
+  <meta property="og:description" content="Moderne Websites für KMU, transparent, schnell und mobilfreundlich.">
+  <meta property="og:type" content="website">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
@@ -48,7 +54,7 @@
 <section id="about" class="about-bg reveal">
   <div class="about-grid">
     <div class="about-img-wrap reveal" data-reveal-delay style="--reveal-delay: 0.1s;">
-      <img src="Headshot.png" alt="Headshot" class="about-headshot">
+      <img src="Headshot.png" alt="Portrait von Phil Hägeli, Webentwickler aus Luzern" class="about-headshot">
     </div>
     <div class="about-text reveal" data-reveal-delay style="--reveal-delay: 0.22s;">
       <p class="section-eyebrow">Über mich</p>
@@ -185,10 +191,13 @@
           <span class="check">✓</span> Mobilfreundliches Design
         </div>
         <div class="pricing-feature">
-          <span class="check">✓</span> Kleine Änderungen inklusive
+          <span class="check">✓</span> Performate Website
         </div>
         <div class="pricing-feature">
-          <span class="check">✓</span> Support
+          <span class="check">✓</span> bis zu 5 Unterseiten
+        </div>
+        <div class="pricing-feature">
+          <span class="check">✓</span> Support bei Problemen
         </div>
       </div>
       <a href="#contact" class="btn btn-primary pricing-btn">Jetzt anfragen</a>
@@ -204,12 +213,24 @@
         <div class="pricing-feature">
           <span class="check">✓</span> Priorisierter Support
         </div>
+        <div class="pricing-feature">
+          <span class="check">✓</span> Kleinere Änderungen inklusive
+        </div>
+        <div class="pricing-feature">
+          <span class="check">✓</span> bis zu 10 Unterseiten
+        </div>
+        <div class="pricing-feature">
+          <span class="check">✓</span> Kontaktformular
+        </div>
+        <div class="pricing-feature">
+          <span class="check">✓</span> SEO-Grundoptimierung
+        </div>
       </div>
       <a href="#contact" class="btn btn-primary pricing-btn">Jetzt anfragen</a>
     </div>
   </div>
   <div class="pricing-disclaimer reveal">
-    Mindestlaufzeit 3 Monate · 1 Monat Kündigungsfrist · Keine versteckten Kosten
+    Grössere Änderungen sind ebenfalls möglich. Senden Sie mir einfach eine Anfrage per E-Mail, und ich erstelle Ihnen eine passende Offerte mit dem Preis für die gewünschte Änderung.
   </div>
 </section>
 
@@ -219,8 +240,27 @@
   <div class="contact-inner reveal">
     <p class="section-eyebrow">Kontakt</p>
     <h2>Bereit für Ihre neue Website?</h2>
-    <p>Schreiben Sie mir. Ich erstelle Ihnen gerne eine unverbindliche Offerte – unkompliziert und persönlich.</p>
-    <div class="contact-list">
+    <p>Schreiben Sie mir per E-Mail oder über das Formular. Ich erstelle Ihnen gerne eine unverbindliche Offerte für kleinere oder grössere Änderungen – unkompliziert und persönlich.</p>
+    <form class="contact-form reveal" action="https://formspree.io/f/mjglgnyk" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Telefon (optional)</label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+      <div class="form-group">
+        <label for="message">Nachricht</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 100%; max-width: 320px; margin: 0 auto;">Anfrage senden</button>
+    </form>
+    <div class="contact-list" style="margin-top: 2.5rem;">
       <a href="mailto:phil.haegeli@gmx.ch" class="contact-item reveal" data-reveal-delay style="--reveal-delay: 0.08s;">
         <span class="contact-dot"></span> phil.haegeli@gmx.ch
       </a>
