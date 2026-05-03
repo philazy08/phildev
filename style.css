@@ -1519,13 +1519,13 @@ footer a:hover {
   }
 
   .hero-typing-line {
-    white-space: normal;
-    flex-wrap: wrap;
+    white-space: nowrap;
+    flex-wrap: nowrap;
   }
 
   .hero-typing-word {
-    white-space: normal;
-    word-break: break-word;
+    white-space: nowrap;
+    word-break: normal;
   }
 
   .hero-copy .hero-lead {
