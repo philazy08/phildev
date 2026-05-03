@@ -215,11 +215,15 @@ nav a.is-active {
   justify-content: center;
   position: relative;
   z-index: 1;
+  min-width: 0;
+  width: 100%;
 }
 
 .hero-copy {
   max-width: 760px;
   text-align: center;
+  min-width: 0;
+  width: 100%;
 }
 
 .hero-lead {
@@ -246,6 +250,9 @@ nav a.is-active {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .hero h1 em {
@@ -265,6 +272,8 @@ nav a.is-active {
   min-height: 1.2em;
   white-space: nowrap;
   overflow-anchor: none;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .hero-typing-suffix {
@@ -1288,6 +1297,20 @@ footer a:hover {
     min-height: calc(100svh - 68px);
     padding-top: clamp(2.25rem, 5vh, 4rem);
     padding-bottom: clamp(2.75rem, 5vh, 4rem);
+  }
+
+  .hero::before {
+    width: 10rem;
+    height: 10rem;
+    right: -3rem;
+    top: -3rem;
+  }
+
+  .hero::after {
+    width: 11rem;
+    height: 11rem;
+    left: -3.5rem;
+    bottom: -4rem;
   }
 
   .hero-copy {
