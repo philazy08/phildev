@@ -231,6 +231,10 @@ document.addEventListener('DOMContentLoaded', () => {
         typingCursor.style.setProperty('--cursor-offset', offset + 'px');
       };
 
+      window.requestAnimationFrame(() => {
+        updateCursorPosition();
+      });
+
       window.setTimeout(() => {
         if (words.length > 0) {
           updateCursorPosition();
