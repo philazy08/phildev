@@ -26,6 +26,7 @@ html {
   overflow-x: clip;
   max-width: 100%;
   overscroll-behavior-x: none;
+  scroll-padding-top: 6rem;
 }
 
 html.js {
@@ -223,8 +224,6 @@ nav a.is-active {
 /* Hero */
 .hero {
   background: linear-gradient(180deg, #fff 0%, #faf7f3 100%);
-  min-height: calc(100dvh - 76px);
-  min-height: calc(100svh - 76px);
   padding: clamp(3rem, 7vh, 5.5rem) 0 clamp(3.5rem, 7vh, 5.25rem);
   border-bottom: 1px solid var(--border);
   position: relative;
@@ -515,6 +514,10 @@ footer p {
 section {
   padding: 4.25rem 0;
   overflow-x: hidden;
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
 }
 
 section > * {
@@ -1088,7 +1091,8 @@ h2 {
 }
 
 .form-group textarea {
-  resize: vertical;
+  resize: none;
+  overflow: hidden;
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -1297,19 +1301,13 @@ footer a:hover {
 /* Animations */
 .js .reveal {
   opacity: 0;
-  transform: translateY(32px) scale(0.985);
-  filter: blur(6px);
-  transition:
-    opacity 0.85s ease,
-    transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1),
-    filter 0.85s ease;
-  will-change: opacity, transform, filter;
+  transition: opacity 0.85s ease;
+  will-change: opacity;
 }
 
 .js .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
-  filter: blur(0);
+  transform: none;
 }
 
 .js .reveal[data-reveal-delay] {
@@ -1337,15 +1335,12 @@ footer a:hover {
   .js .reveal.is-visible {
     opacity: 1;
     transform: none;
-    filter: none;
     transition: none;
   }
 }
 
 @media (max-width: 900px) {
   .hero {
-    min-height: calc(100dvh - 72px);
-    min-height: calc(100svh - 72px);
     padding-top: clamp(2.5rem, 6vh, 4.75rem);
     padding-bottom: clamp(3rem, 6vh, 4.75rem);
   }
@@ -1381,8 +1376,6 @@ footer a:hover {
 
 @media (max-width: 700px) {
   .hero {
-    min-height: calc(100dvh - 68px);
-    min-height: calc(100svh - 68px);
     padding-top: clamp(2.25rem, 5vh, 4rem);
     padding-bottom: clamp(2.75rem, 5vh, 4rem);
   }
@@ -1454,6 +1447,10 @@ footer a:hover {
     padding: 1.5rem 0;
   }
 
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
   .about-bg {
     scroll-margin-top: 5rem;
   }
@@ -1511,13 +1508,14 @@ footer a:hover {
 
   .contact-list {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
 
   .contact-item {
-    width: 100%;
+    width: min(100%, 360px);
     justify-content: center;
     min-width: 0;
+    margin-inline: auto;
   }
 
   .contact-form {
@@ -1607,8 +1605,8 @@ footer a:hover {
     padding: 0;
     display: none;
     z-index: 99;
-    max-height: calc(100vh - 60px);
-    overflow-y: auto;
+    max-height: none;
+    overflow-y: visible;
     backdrop-filter: blur(14px);
   }
 
