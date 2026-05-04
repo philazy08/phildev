@@ -39,6 +39,8 @@ html.js {
 body {
   width: 100%;
   max-width: 100%;
+  margin: 0;
+  position: relative;
   overflow-x: hidden;
   overflow-x: clip;
   background: var(--cream);
@@ -56,6 +58,12 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+svg,
+video,
+canvas {
+  max-width: 100%;
 }
 
 .hero {
@@ -258,6 +266,7 @@ nav a.is-active {
   max-width: 100%;
   min-width: 0;
   overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .hero h1 em {
@@ -1045,7 +1054,8 @@ h2 {
 }
 
 .contact-submit {
-  width: fit-content;
+  width: auto;
+  max-width: 100%;
   align-self: center;
   grid-column: 1 / -1;
   justify-self: center;
@@ -1538,13 +1548,18 @@ footer a:hover {
   }
 
   .hero-typing-line {
-    white-space: nowrap;
-    flex-wrap: nowrap;
+    white-space: normal;
+    flex-wrap: wrap;
+    gap: 0.12em;
   }
 
   .hero-typing-word {
     white-space: nowrap;
     word-break: normal;
+  }
+
+  .hero-typing-suffix {
+    white-space: normal;
   }
 
   .hero-copy .hero-lead {
