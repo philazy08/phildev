@@ -26,7 +26,6 @@ html {
   overflow-x: clip;
   max-width: 100%;
   overscroll-behavior-x: none;
-  scroll-padding-top: 6rem;
 }
 
 html.js {
@@ -442,6 +441,14 @@ footer p {
   color: var(--accent);
 }
 
+.section-divider {
+  width: min(88px, calc(100% - (var(--page-gutter) * 2)));
+  height: 2px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  border-radius: 999px;
+}
+
 .hero-btns {
   display: flex;
   gap: 1rem;
@@ -516,10 +523,6 @@ section {
   overflow-x: hidden;
 }
 
-section[id] {
-  scroll-margin-top: 6rem;
-}
-
 section > * {
   inline-size: min(var(--content-max), calc(100% - (var(--page-gutter) * 2)));
   margin-inline: auto;
@@ -560,7 +563,6 @@ h2 {
   background: var(--white);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  scroll-margin-top: 6rem;
 }
 
 .about-grid {
@@ -1419,6 +1421,10 @@ footer a:hover {
     margin-bottom: 1.8rem;
   }
 
+  .section-divider {
+    width: min(72px, calc(100% - (var(--page-gutter) * 2)));
+  }
+
   .hero-btns {
     justify-content: center;
     flex-direction: column;
@@ -1445,14 +1451,6 @@ footer a:hover {
 
   section {
     padding: 1.5rem 0;
-  }
-
-  section[id] {
-    scroll-margin-top: 5rem;
-  }
-
-  .about-bg {
-    scroll-margin-top: 5rem;
   }
 
   .about-grid {

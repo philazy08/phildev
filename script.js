@@ -6,6 +6,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile menu toggle
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
+  const navBar = document.querySelector('nav');
+  const scrollTargetsByHash = {
+    '#about': null,
+    '#skills': '.section-header',
+    '#projects': '.section-header',
+    '#pricing': '.section-header',
+    '#contact': null
+  };
+
+  const scrollToNavTarget = (hash) => {
+    const section = document.querySelector(hash);
+    if (!section) return;
+
+    const targetSelector = scrollTargetsByHash[hash];
+    const target = targetSelector ? section.querySelector(targetSelector) : null;
+    const scrollElement = target || section;
+    const navHeight = navBar ? navBar.offsetHeight : 0;
+    const top = scrollElement.getBoundingClientRect().top + window.scrollY - navHeight;
+
+    window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+  };
   
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
@@ -31,6 +52,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const typingWord = document.querySelector('.hero-typing-word');
   const typingCursor = document.querySelector('.hero-typing-cursor');
   const typingSpacer = document.querySelector('.hero-typing-spacer');
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const hash = link.getAttribute('href');
+      if (!hash || !hash.startsWith('#')) return;
+
+      event.preventDefault();
+
+      if (navMenu) {
+        navMenu.classList.remove('is-open');
+      }
+      if (navToggle) {
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      scrollToNavTarget(hash);
+    });
+  });
 
   // Fallback for browsers without IntersectionObserver
   if (!('IntersectionObserver' in window)) {
