@@ -557,6 +557,7 @@ h2 {
   background: var(--white);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  scroll-margin-top: 6rem;
 }
 
 .about-grid {
@@ -1451,6 +1452,10 @@ footer a:hover {
 
   section {
     padding: 1.5rem 0;
+  }
+
+  .about-bg {
+    scroll-margin-top: 5rem;
   }
 
   .about-grid {
