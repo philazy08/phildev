@@ -3,6 +3,25 @@ document.documentElement.classList.add('js');
 
 // Initialize scroll reveal animations
 document.addEventListener('DOMContentLoaded', () => {
+  // Mobile menu toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close menu when a link is clicked
+    navMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
   const revealElements = document.querySelectorAll('.reveal');
   const nav = document.querySelector('nav');
   const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
